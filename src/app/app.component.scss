@@ -1,4 +1,23 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  padding-left: 8px;
+  padding-right: 8px;
+  z-index: 1;
 
-.container {
+  h1 {
+    font-family: 'Pacifico', cursive;
+    margin: 8px;
+  }
+}
+
+.main-body {
+  padding-top: 100px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.lg-container {
   width: 50%;
 }
