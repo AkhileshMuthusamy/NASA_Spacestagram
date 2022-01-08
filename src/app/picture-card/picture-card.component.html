@@ -1,15 +1,32 @@
-<div>
-  <h1>{{data.title}}</h1>
-  <time>{{data.date| date}}</time>
-  <img [src]="data.url" [alt]="data.title" width="300px" (click)="showModel()"/>
-  <p>{{data.explanation}}...<span>Read More</span></p>
-  <button>Like</button>
-  <button>Share</button>
-</div>
+<article class="card pb-3">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <img [src]="data.url" [alt]="data.title" class="responsive" (click)="showModel()"/>
+  </div>
+  <div class="px-3">
+    <h1 class="card-title">{{data.title}}</h1>
+    <time>{{data.date| date}}</time>
+    <p>
+      {{data.explanation | slice:0:(readMore ? undefined: sliceLength)}}
+      {{readMore ? '' : '...'}}
+      <span class="read-more" (click)="readMore = !readMore">
+        Read {{ readMore ? 'Less' : 'More'}}
+      </span>
+    </p>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn red" (click)="isLiked = !isLiked">
+        <i class="material-icons" [ngClass]="{'bouncy': isLiked === true}">{{isLiked ? 'favorite' : 'favorite_border'}}</i>
+        <span>Like</span>
+      </button>
+      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn green" (click)="true">
+        <i class="material-icons" [ngClass]="{'bouncy': isLiked === true}">share</i>
+        <span>Share</span>
+      </button>
+    </div>
+  </div>
+</article>
 
-<div fxLayout="column" id="model" class="modal" *ngIf="isModelOpened">
+<div fxLayout="column" class="modal" *ngIf="isModelOpened">
   <div fxFlex="50px" fxLayout="row" fxLayoutAlign="end center" class="model-header">
-    <!-- <button (click)="closeModel()">Close</button> -->
     <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"  class="close" (click)="closeModel()"> <span> &times; </span> <span> Close</span></button>
   </div>
   <!-- Modal content -->

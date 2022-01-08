@@ -11,9 +11,11 @@ export class PictureCardComponent implements OnInit, AfterViewInit {
   @Input()
   data!: PictureData;
 
+  readonly MAX_CHAR = 55;
+  sliceLength = this.MAX_CHAR;
+  readMore = false;
   isModelOpened = false;
-  // @ViewChild('modelDialog')
-  // modelDialog!: ElementRef<HTMLDialogElement>;
+  isLiked = false;
 
   constructor() { }
 
@@ -30,8 +32,6 @@ export class PictureCardComponent implements OnInit, AfterViewInit {
 
   closeModel() {
     this.isModelOpened = false;
-    // console.dir(this.modelDialog);
-    // console.log(this.modelDialog.nativeElement.addEventListener('show'));
   }
 
 }
