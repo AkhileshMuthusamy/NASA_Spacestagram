@@ -1,1 +1,101 @@
 /* You can add global styles to this file, and also import other style files */
+
+$spacer: 1rem;
+
+html, body {
+  height: 100%;
+  // font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,cantarell,helvetica neue,ubuntu,sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  // margin-left: 8px;
+  // margin-right: 8px;
+  background-color: #dddddd;
+}
+
+
+.p-2 {
+  padding: ($spacer * .5) !important;
+}
+
+.p-3 {
+  padding: $spacer !important;
+}
+
+.pt-2 {
+  padding-top: ($spacer * .5) !important;
+}
+
+.pt-3 {
+  padding-top: $spacer !important;
+}
+
+.pb-2 {
+  padding-bottom: ($spacer * .5) !important;
+}
+
+.pb-3 {
+  padding-bottom: $spacer !important;
+}
+
+.px-3 {
+  padding-left: $spacer !important;
+  padding-right: $spacer !important;
+}
+
+.red {
+  border: 2px solid #fe657d;
+  color: #fe657d;
+}
+
+.green {
+  border: 2px solid #509b7d;
+  color: #509b7d;
+}
+
+.round-btn {
+  border-radius: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+  }
+}
+
+
+//Watch me get bouncy
+@-webkit-keyframes bouncy {
+  from, to { -webkit-transform: scale(1, 1); }
+  25% { -webkit-transform: scale(0.9, 1.1); }
+  50% { -webkit-transform: scale(1.1, 0.9); }
+  75% { -webkit-transform: scale(0.95, 1.05); }
+}
+@keyframes bouncy {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05);}
+}
+
+//Settings
+.bouncy {
+  -webkit-animation: bouncy 0.6s;
+  animation: bouncy 0.6s;
+  -webkit-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
