@@ -1,4 +1,13 @@
-
-<ng-container *ngFor="let pod of data">
-  <shopify-picture-card [data]="pod"></shopify-picture-card>
-</ng-container>
+<header>
+  <h1>
+    Spacestagram
+  </h1>
+</header>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div  class="container" *ngFor="let pod of data">
+    <shopify-picture-card [data]="pod"></shopify-picture-card>
+  </div>
+</div>
+<footer>
+  Footer
+</footer>

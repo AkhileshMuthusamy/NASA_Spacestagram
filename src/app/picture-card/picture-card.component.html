@@ -1,8 +1,19 @@
 <div>
   <h1>{{data.title}}</h1>
   <time>{{data.date| date}}</time>
-  <img [src]="data.url" [alt]="data.title" width="300px"/>
+  <img [src]="data.url" [alt]="data.title" width="300px" (click)="showModel()"/>
   <p>{{data.explanation}}...<span>Read More</span></p>
   <button>Like</button>
   <button>Share</button>
+</div>
+
+<div fxLayout="column" id="model" class="modal" *ngIf="isModelOpened">
+  <div fxFlex="50px" fxLayout="row" fxLayoutAlign="end center" class="model-header">
+    <!-- <button (click)="closeModel()">Close</button> -->
+    <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"  class="close" (click)="closeModel()"> <span> &times; </span> <span> Close</span></button>
+  </div>
+  <!-- Modal content -->
+  <div class="model-img">
+    <img class="responsive" [src]="data.url"/>
+  </div>
 </div>
