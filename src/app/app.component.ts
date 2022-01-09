@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'shopify-root',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'shopify-spacestagram';
+  title = 'Spacestagram';
 
 
   data = [
@@ -198,5 +199,10 @@ export class AppComponent {
     }
     ];
 
+  constructor(private titleService: Title) {
+  }
 
+  ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+  }
 }
