@@ -5,6 +5,8 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.component';
+import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
 
 
@@ -12,6 +14,8 @@ import {PictureCardComponent} from './picture-card/picture-card.component';
   declarations: [
     AppComponent,
     PictureCardComponent,
+    ImageModalComponent,
+    ShareModalComponent,
   ],
   imports: [
     BrowserModule,

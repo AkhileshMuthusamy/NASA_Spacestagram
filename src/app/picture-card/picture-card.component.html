@@ -25,12 +25,4 @@
   </div>
 </article>
 
-<div fxLayout="column" class="modal" *ngIf="isModelOpened">
-  <div fxFlex="50px" fxLayout="row" fxLayoutAlign="end center" class="model-header">
-    <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"  class="close" (click)="closeModel()"> <span> &times; </span> <span> Close</span></button>
-  </div>
-  <!-- Modal content -->
-  <div class="model-img">
-    <img class="responsive" [src]="data.url"/>
-  </div>
-</div>
+<shopify-image-modal [show]="showImageModal" [imageUrl]="data.url"></shopify-image-modal>

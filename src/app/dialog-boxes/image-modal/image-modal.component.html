@@ -1,0 +1,9 @@
+<div fxLayout="column" class="modal" *ngIf="show">
+  <div fxFlex="50px" fxLayout="row" fxLayoutAlign="end center" class="model-header">
+    <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"  class="close" (click)="closeModal()"> <span> &times; </span> <span> Close</span></button>
+  </div>
+  <!-- Modal content -->
+  <div class="model-img">
+    <img class="responsive" [src]="imageUrl"/>
+  </div>
+</div>
