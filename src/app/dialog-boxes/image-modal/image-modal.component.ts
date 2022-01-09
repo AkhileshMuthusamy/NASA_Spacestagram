@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'shopify-image-modal',
@@ -11,6 +11,8 @@ export class ImageModalComponent implements OnInit {
   imageUrl!: string;
   @Input()
   show: boolean = false;
+  @Output() 
+  close: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
@@ -19,6 +21,7 @@ export class ImageModalComponent implements OnInit {
 
   closeModal(): void {
     this.show = false;
+    this.close.emit(true);
   }
 
 }
