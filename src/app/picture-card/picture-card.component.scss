@@ -3,6 +3,7 @@
 
   background-color: white;
   border-radius: 12px;
+  box-shadow: -10px 10px 80px rgb(0 0 0 / 10%);
 
   .card-title {
     margin-bottom: 5px !important;
@@ -15,7 +16,7 @@
     cursor: pointer;
     transition: 0.3s;
 
-    &:hover {opacity: 0.7;}
+    &:hover {opacity: 0.9;}
   }
 
   .read-more {
