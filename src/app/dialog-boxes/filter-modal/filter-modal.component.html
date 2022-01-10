@@ -6,10 +6,20 @@
         <button fxLayout="row" fxLayoutAlign="center center" class="round-btn" (click)="closeModal()">
             <span>Last 30 days</span>
         </button>
-        <label for="startDate">Start Date:</label>
-        <input id="startDate" type="date" />
-        <label for="endDate">End Date:</label>
-        <input id="endDate" type="date" />
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                <label for="startDate">Start Date:</label>
+                <input id="startDate" type="date" />
+            </div>
+            <p class="text-error m-0">* Please select a valid date</p>
+        </div>
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                <label for="endDate">End Date:</label>
+                <input id="endDate" type="date" />
+            </div>
+            <p class="text-error m-0">* Please select a valid date</p>
+        </div>
         <button fxLayout="row" fxLayoutAlign="center center" class="round-btn green" (click)="closeModal()">
             <span>Apply</span>
         </button>

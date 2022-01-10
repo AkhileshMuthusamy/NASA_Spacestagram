@@ -47,6 +47,10 @@ body {
   padding-right: $spacer !important;
 }
 
+.m-0 {
+  margin: unset !important;
+}
+
 .w-100 {
   width: 100% !important;
 }
@@ -83,6 +87,10 @@ body {
 
 i, li, button {
   user-select: none; 
+}
+
+.text-error {
+  color: #fe657d;
 }
 
 
