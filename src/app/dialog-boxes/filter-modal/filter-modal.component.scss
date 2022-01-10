@@ -1,0 +1,40 @@
+$black: rgba(0, 0, 0, 0.822);
+$element-border-radius: 18px;
+$modal-border-radius: 12px;
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5px; /* Location of the box */
+    padding-right: 8px;
+    left: 0;
+    top: 72px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    .modal-body {
+        background-color: white;
+        border-radius: $modal-border-radius;
+        padding: 8px;
+
+        label {
+            font-weight: 700;
+        }
+
+        input {
+            height: 35px;
+            border: 2px solid $black;
+            border-radius: $element-border-radius;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    
+        .round-btn {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+    }
+}

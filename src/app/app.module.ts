@@ -5,8 +5,10 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {FilterModalComponent} from './dialog-boxes/filter-modal/filter-modal.component';
 import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.component';
 import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
+import {HeaderComponent} from './header/header.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
 
 
@@ -16,6 +18,8 @@ import {PictureCardComponent} from './picture-card/picture-card.component';
     PictureCardComponent,
     ImageModalComponent,
     ShareModalComponent,
+    FilterModalComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

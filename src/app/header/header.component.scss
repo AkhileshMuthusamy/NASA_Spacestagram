@@ -1,0 +1,15 @@
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    z-index: 1;
+    box-shadow: -10px 10px 80px rgb(0 0 0 / 10%);
+  
+    h1 {
+      font-family: 'Pacifico', cursive;
+      margin: 8px;
+    }
+  }

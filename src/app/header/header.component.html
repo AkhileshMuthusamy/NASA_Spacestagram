@@ -1,0 +1,14 @@
+<header fxLayout="row" fxLayoutAlign="space-between">
+    <h1>
+      Spacestagram
+    </h1>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="displayHeaderModal()">
+        <i class="material-icons">tune</i>
+        <span>
+          Filter
+        </span>
+      </button>
+    </div>
+</header>
+<shopify-filter-modal [show]="showHeaderModal" (close)="showHeaderModal = false"></shopify-filter-modal>
