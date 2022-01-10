@@ -47,6 +47,10 @@ body {
   padding-right: $spacer !important;
 }
 
+.w-100 {
+  width: 100% !important;
+}
+
 .red {
   border: 2px solid #fe657d;
   color: #fe657d;
@@ -75,6 +79,10 @@ body {
 .responsive {
   width: 100%;
   height: auto;
+}
+
+i, li, button {
+  user-select: none; 
 }
 
 
