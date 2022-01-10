@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PictureData} from 'src/app/shared/objects/global-object';
 
 @Component({
   selector: 'shopify-share-modal',
@@ -7,9 +8,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareModalComponent implements OnInit {
 
+  @Input()
+  data!: PictureData;
+  @Input()
+  show: boolean = false;
+  @Output() 
+  close: EventEmitter<boolean> = new EventEmitter();
+
+  activeTab = 0;
+  copied = false;
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  closeModal() {
+    this.close.emit(true);
+  }
+
+  switchTab(tabIndex: number): void {
+    this.activeTab = tabIndex;
+    this.copied = false
+  }
+
+  copyToClipboard(value: string) {
+    navigator.clipboard.writeText(value);
+    this.copied = true;
+    setTimeout(() => {
+      this.copied = false;
+    }, 2000);
+  }
+
+  getXY() {
+    let x = screen.width/2 - 700/2;
+    let y = screen.height/2 - 450/2;
+    return [x, y];
+  }
+
+  shareOnFb() {
+    this.close.emit(true);
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+ encodeURIComponent(this.data.url),'facebook-share-dialog','width=700, height=450, left='+ this.getXY()[0]+',top=' + this.getXY()[1])
+  }
+
+  shareOnTwitter() {
+    this.close.emit(true);
+    let queryParamText = encodeURIComponent(`#spacestagram ${this.data.title}`);
+    let queryParamUrl = encodeURIComponent(this.data.url);
+    window.open(`https://twitter.com/intent/tweet?text=${queryParamText}&url=${queryParamUrl}`, 'twitter-share-dialog', 'width=700, height=450, left='+ this.getXY()[0]+',top=' + this.getXY()[1])
   }
 
 }

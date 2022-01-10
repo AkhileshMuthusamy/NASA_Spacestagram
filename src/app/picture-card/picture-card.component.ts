@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PictureData} from '../shared/objects/global-object';
 
 @Component({
@@ -6,7 +6,7 @@ import {PictureData} from '../shared/objects/global-object';
   templateUrl: './picture-card.component.html',
   styleUrls: ['./picture-card.component.scss']
 })
-export class PictureCardComponent implements OnInit, AfterViewInit {
+export class PictureCardComponent implements OnInit {
 
   @Input()
   data!: PictureData;
@@ -15,6 +15,7 @@ export class PictureCardComponent implements OnInit, AfterViewInit {
   sliceLength = this.MAX_CHAR;
   readMore = false;
   showImageModal = false;
+  showShareModal = false;
   isLiked = false;
 
   constructor() { }
@@ -22,15 +23,11 @@ export class PictureCardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    // this.closeModel();
-  }
-
-  showModel() {
+  showImageModel(): void {
     this.showImageModal = true;
   }
 
-  share_fb(url: string) {
-    window.open('https://www.facebook.com/sharer/sharer.php?u='+url,'facebook-share-dialog',"width=626, height=436")
+  showShareModel(): void {
+    this.showShareModal = true;
   }
 }

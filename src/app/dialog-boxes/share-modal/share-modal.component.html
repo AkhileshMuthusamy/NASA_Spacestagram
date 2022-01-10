@@ -1,1 +1,63 @@
-<p>share-modal works!</p>
+<!-- The Modal -->
+<div fxLayout="column" fxLayoutAlign="center center" class="modal" *ngIf="show">
+    <div class="modal-body gt-sm">
+        <div fxLayout="row" fxLayoutAlign="center center"  class="tab">
+            <li fxLayout="column" fxLayoutAlign="center center" class="tab-name" [ngClass]="{'active': activeTab == 0}" fxFlex="50%" (click)="switchTab(0)">
+                Share Image URL
+            </li>
+            <li fxLayout="column" fxLayoutAlign="center center" class="tab-name" [ngClass]="{'active': activeTab == 1}" fxFlex="50%" (click)="switchTab(1)">
+                Share Post
+            </li>
+        </div>
+        <div class="tab-container">
+            <div *ngIf="activeTab == 0" class="tab-body">
+                <div class="input-group" fxLayout="row">
+                    <div fxFlex="calc(100% - 45px)">
+                        <input class="w-100" [value]="data.url" readonly/>
+                    </div>
+                    <button fxFlex="45px" (click)="copyToClipboard(data.url)">
+                        <i class="material-icons">{{copied ? 'done' : 'content_copy'}}</i>
+                    </button>
+                </div>
+                <!-- Facebook Share -->
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb()">
+                    <img src="assets/images/facebook.png"/>
+                    <span>Share on Facebook</span>
+                </button>
+                <!-- Twitter Share -->
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter()">
+                    <img src="assets/images/twitter.png"/>
+                    <span>Share on Twitter</span>
+                </button>
+            </div>
+
+            <div *ngIf="activeTab == 1" class="tab-body">
+                <div class="input-group" fxLayout="row">
+                    <div fxFlex="calc(100% - 45px)">
+                        <input #postUrl class="w-100" [value]="'https://nasa-spacestagram-web.netlify.app/'" readonly/>
+                    </div>
+                    <button fxFlex="45px" (click)="copyToClipboard(postUrl.value)">
+                        <i class="material-icons">{{copied ? 'done' : 'content_copy'}}</i>
+                    </button>
+                </div>
+                <!-- Facebook Share -->
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb()">
+                    <img src="assets/images/facebook.png"/>
+                    <span>Share on Facebook</span>
+                </button>
+                <!-- Twitter Share -->
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter()">
+                    <img src="assets/images/twitter.png"/>
+                    <span>Share on Twitter</span>
+                </button>
+            </div>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn red" (click)="closeModal()">
+                <i class="material-icons">close</i>
+                <span>Close</span>
+            </button>
+        </div>
+    </div>
+</div>

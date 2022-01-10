@@ -1,6 +1,6 @@
 <article class="card pb-3">
   <div fxLayout="row" fxLayoutAlign="center center">
-    <img [src]="data.url" [alt]="data.title" class="responsive" (click)="showModel()"/>
+    <img [src]="data.url" [alt]="data.title" class="responsive" (click)="showImageModel()"/>
   </div>
   <div class="px-3">
     <h1 class="card-title">{{data.title}}</h1>
@@ -17,7 +17,7 @@
         <i class="material-icons" [ngClass]="{'bouncy': isLiked === true}">{{isLiked ? 'favorite' : 'favorite_border'}}</i>
         <span>Like</span>
       </button>
-      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn green" (click)="true">
+      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn green" (click)="showShareModal = true">
         <i class="material-icons" [ngClass]="{'bouncy': isLiked === true}">share</i>
         <span>Share</span>
       </button>
@@ -25,4 +25,5 @@
   </div>
 </article>
 
-<shopify-image-modal [show]="showImageModal" [imageUrl]="data.url"></shopify-image-modal>
+<shopify-image-modal [show]="showImageModal" (close)="showImageModal = false" [imageUrl]="data.url"></shopify-image-modal>
+<shopify-share-modal [show]="showShareModal" (close)="showShareModal = false" [data]="data"></shopify-share-modal>
