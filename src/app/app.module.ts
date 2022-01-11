@@ -1,3 +1,4 @@
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserModule} from '@angular/platform-browser';
@@ -31,6 +32,7 @@ import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MediaObserver} from '@angular/flex-layout';
 import {PictureData} from '../shared/objects/global-object';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'shopify-picture-card',
@@ -12,16 +12,26 @@ export class PictureCardComponent implements OnInit {
   @Input()
   data!: PictureData;
 
-  readonly MAX_CHAR = 55;
-  sliceLength = this.MAX_CHAR;
+  readonly MAX_CHAR_ON_MOBILE = 55;
+  readonly MAX_CHAR_ON_PC = 170;
+  sliceLength = this.MAX_CHAR_ON_MOBILE;
   readMore = false;
   showImageModal = false;
   showShareModal = false;
   isLiked = false;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private mediaObserver: MediaObserver,) { }
 
   ngOnInit(): void {
+    this.mediaObserver.asObservable().subscribe((mediaChange) => {
+      const screen = mediaChange[0].mqAlias;
+      console.log(screen);
+      if ((screen === 'xs') || (screen === 'sm')) {
+        this.sliceLength = this.MAX_CHAR_ON_MOBILE;
+      } else {
+        this.sliceLength = this.MAX_CHAR_ON_PC;
+      }
+     });
   }
 
   showImageModel(): void {
@@ -30,9 +40,5 @@ export class PictureCardComponent implements OnInit {
 
   showShareModel(): void {
     this.showShareModal = true;
-  }
-
-  videoURL() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.data.url);
   }
 }
