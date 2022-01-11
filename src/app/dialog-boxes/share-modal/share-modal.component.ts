@@ -22,7 +22,7 @@ export class ShareModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sharePostUrl = window.location.href + this.data.date;
+    this.sharePostUrl = window.location.protocol + '//' + window.location.host + '/' + this.data.date;
   }
 
   closeModal() {
