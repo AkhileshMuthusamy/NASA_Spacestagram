@@ -17,10 +17,12 @@ export class ShareModalComponent implements OnInit {
 
   activeTab = 0;
   copied = false;
+  sharePostUrl: string = ''
   
   constructor() { }
 
   ngOnInit(): void {
+    this.sharePostUrl = window.location.href + '/' + this.data.date;
   }
 
   closeModal() {

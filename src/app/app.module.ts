@@ -12,6 +12,7 @@ import {HeaderComponent} from './header/header.component';
 import {MainLayoutComponent} from './main-layout/main-layout.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
 import {SharedPostLayoutComponent} from './shared-post-layout/shared-post-layout.component';
+import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {SharedPostLayoutComponent} from './shared-post-layout/shared-post-layout
     HeaderComponent,
     MainLayoutComponent,
     SharedPostLayoutComponent,
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,

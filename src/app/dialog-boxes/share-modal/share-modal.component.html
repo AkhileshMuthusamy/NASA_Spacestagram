@@ -10,6 +10,7 @@
             </li>
         </div>
         <div class="tab-container">
+            <!-- Share Image URL Tab body -->
             <div *ngIf="activeTab == 0" class="tab-body">
                 <div class="input-group" fxLayout="row">
                     <div fxFlex="calc(100% - 45px)">
@@ -30,11 +31,11 @@
                     <span>Share on Twitter</span>
                 </button>
             </div>
-
+            <!-- Share Post Tab body -->
             <div *ngIf="activeTab == 1" class="tab-body">
                 <div class="input-group" fxLayout="row">
                     <div fxFlex="calc(100% - 45px)">
-                        <input #postUrl class="w-100" [value]="'https://nasa-spacestagram-web.netlify.app/'" readonly/>
+                        <input #postUrl class="w-100" [value]="sharePostUrl" readonly/>
                     </div>
                     <button fxFlex="45px" (click)="copyToClipboard(postUrl.value)">
                         <i class="material-icons">{{copied ? 'done' : 'content_copy'}}</i>

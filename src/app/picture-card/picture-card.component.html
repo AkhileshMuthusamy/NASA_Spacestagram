@@ -1,7 +1,7 @@
 <article class="card pb-3">
   <div fxLayout="row" fxLayoutAlign="center center">
     <img *ngIf="data.media_type === 'image'" [src]="data.url" [alt]="data.title" class="responsive" (click)="showImageModel()"/>
-    <iframe *ngIf="data.media_type === 'video'" [src]="videoURL()" frameborder="0" allowfullscreen ngClass.lt-sm="sm"></iframe>
+    <iframe *ngIf="data.media_type === 'video'" [src]="data.url | safeUrl" frameborder="0" allowfullscreen ngClass.lt-sm="sm"></iframe>
   </div>
   <div class="px-3">
     <h1 class="card-title">{{data.title}}</h1>
