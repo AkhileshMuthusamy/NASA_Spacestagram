@@ -21,12 +21,12 @@
                     </button>
                 </div>
                 <!-- Facebook Share -->
-                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb()">
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb(data.url)">
                     <img src="assets/images/facebook.png"/>
                     <span>Share on Facebook</span>
                 </button>
                 <!-- Twitter Share -->
-                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter()">
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter(data.url)">
                     <img src="assets/images/twitter.png"/>
                     <span>Share on Twitter</span>
                 </button>
@@ -42,12 +42,12 @@
                     </button>
                 </div>
                 <!-- Facebook Share -->
-                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb()">
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn facebook" (click)="shareOnFb(postUrl.value)">
                     <img src="assets/images/facebook.png"/>
                     <span>Share on Facebook</span>
                 </button>
                 <!-- Twitter Share -->
-                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter()">
+                <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn share-btn twitter " (click)="shareOnTwitter(postUrl.value)">
                     <img src="assets/images/twitter.png"/>
                     <span>Share on Twitter</span>
                 </button>

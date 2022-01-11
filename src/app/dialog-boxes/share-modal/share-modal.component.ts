@@ -22,7 +22,7 @@ export class ShareModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sharePostUrl = window.location.href + '/' + this.data.date;
+    this.sharePostUrl = window.location.href + this.data.date;
   }
 
   closeModal() {
@@ -48,15 +48,15 @@ export class ShareModalComponent implements OnInit {
     return [x, y];
   }
 
-  shareOnFb() {
+  shareOnFb(url: string) {
     this.close.emit(true);
-    window.open('https://www.facebook.com/sharer/sharer.php?u='+ encodeURIComponent(this.data.url),'facebook-share-dialog','width=700, height=450, left='+ this.getXY()[0]+',top=' + this.getXY()[1])
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+ encodeURIComponent(url),'facebook-share-dialog','width=700, height=450, left='+ this.getXY()[0]+',top=' + this.getXY()[1])
   }
 
-  shareOnTwitter() {
+  shareOnTwitter(url: string) {
     this.close.emit(true);
     let queryParamText = encodeURIComponent(`#spacestagram ${this.data.title}`);
-    let queryParamUrl = encodeURIComponent(this.data.url);
+    let queryParamUrl = encodeURIComponent(url);
     window.open(`https://twitter.com/intent/tweet?text=${queryParamText}&url=${queryParamUrl}`, 'twitter-share-dialog', 'width=700, height=450, left='+ this.getXY()[0]+',top=' + this.getXY()[1])
   }
 
