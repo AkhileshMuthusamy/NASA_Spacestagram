@@ -9,7 +9,9 @@ import {FilterModalComponent} from './dialog-boxes/filter-modal/filter-modal.com
 import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.component';
 import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
 import {HeaderComponent} from './header/header.component';
+import {MainLayoutComponent} from './main-layout/main-layout.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
+import {SharedPostLayoutComponent} from './shared-post-layout/shared-post-layout.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import {PictureCardComponent} from './picture-card/picture-card.component';
     ShareModalComponent,
     FilterModalComponent,
     HeaderComponent,
+    MainLayoutComponent,
+    SharedPostLayoutComponent,
   ],
   imports: [
     BrowserModule,

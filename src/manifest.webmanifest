@@ -1,6 +1,6 @@
 {
-  "name": "shopify-spacestagram",
-  "short_name": "shopify-spacestagram",
+  "name": "Spacestagram",
+  "short_name": "Spacestagram",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'shopify-header',
@@ -8,14 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   showHeaderModal = false;
+  @Input()
+  isMainLayout: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   displayHeaderModal(): void {
     this.showHeaderModal = true;
+  }
+
+  navigate() {
+    this.router.navigate(['/']);
   }
 
 }

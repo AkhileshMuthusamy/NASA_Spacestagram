@@ -3,10 +3,16 @@
       Spacestagram
     </h1>
     <div fxLayout="row" fxLayoutAlign="center center">
-      <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="displayHeaderModal()">
+      <button *ngIf="isMainLayout" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="displayHeaderModal()">
         <i class="material-icons">tune</i>
         <span>
           Filter
+        </span>
+      </button>
+      <button *ngIf="!isMainLayout" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="navigate()">
+        <i class="material-icons">home</i>
+        <span>
+          Home
         </span>
       </button>
     </div>

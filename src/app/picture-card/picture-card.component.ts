@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PictureData} from '../shared/objects/global-object';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'shopify-picture-card',
@@ -18,7 +19,7 @@ export class PictureCardComponent implements OnInit {
   showShareModal = false;
   isLiked = false;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -29,5 +30,9 @@ export class PictureCardComponent implements OnInit {
 
   showShareModel(): void {
     this.showShareModal = true;
+  }
+
+  videoURL() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.data.url);
   }
 }

@@ -19,6 +19,17 @@
     &:hover {opacity: 0.9;}
   }
 
+  iframe {
+    height: 350px;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  iframe.sm {
+    height: 200px !important;
+  }
+
   .read-more {
     display: inline-block;
     padding-top: 2px;
