@@ -3,10 +3,10 @@
       Spacestagram
     </h1>
     <div fxLayout="row" fxLayoutAlign="center center">
-      <button *ngIf="isMainLayout" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="displayHeaderModal()">
-        <i class="material-icons">tune</i>
+      <button *ngIf="isMainLayout" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" [ngClass]="{'red': showHeaderModal}" (click)="displayHeaderModal()">
+        <i class="material-icons">{{ showHeaderModal ? 'close' : 'tune'}}</i>
         <span>
-          Filter
+            {{ showHeaderModal ? 'Close' : 'Filter'}}
         </span>
       </button>
       <button *ngIf="!isMainLayout" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn" (click)="navigate()">

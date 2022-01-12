@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
 
   displayHeaderModal(): void {
-    this.showHeaderModal = true;
+    this.showHeaderModal = !this.showHeaderModal;
   }
 
   navigate() {
