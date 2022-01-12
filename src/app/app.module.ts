@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {FilterModalComponent} from './dialog-boxes/filter-modal/filter-modal.component';
 import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.component';
 import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
+import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {MainLayoutComponent} from './main-layout/main-layout.component';
 import {PictureCardLoadingComponent} from './picture-card-loading/picture-card-loading.component';
@@ -29,6 +30,7 @@ import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
     SharedPostLayoutComponent,
     SafeUrlPipe,
     PictureCardLoadingComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
