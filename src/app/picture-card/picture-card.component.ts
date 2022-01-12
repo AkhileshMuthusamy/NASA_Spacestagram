@@ -20,7 +20,7 @@ export class PictureCardComponent implements OnInit {
   showShareModal = false;
   isLiked = false;
 
-  constructor(private mediaObserver: MediaObserver,) { }
+  constructor(private mediaObserver: MediaObserver) { }
 
   ngOnInit(): void {
     this.mediaObserver.asObservable().subscribe((mediaChange) => {
