@@ -9,18 +9,18 @@
         <div fxLayout="column">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
                 <label for="startDate">Start Date:</label>
-                <input id="startDate" type="date" />
+                <input id="startDate" type="date" min="1995-06-16" [max]="today | date:'YYYY-MM-dd'" [formControl]="startDate"/>
             </div>
-            <p class="text-error m-0">* Please select a valid date</p>
+            <p *ngIf="!startDate.valid" class="text-error m-0">* Please select a valid start date</p>
         </div>
         <div fxLayout="column">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
                 <label for="endDate">End Date:</label>
-                <input id="endDate" type="date" />
+                <input id="endDate" type="date" min="1995-06-16" [max]="today | date:'YYYY-MM-dd'" [formControl]="endDate"/>
             </div>
-            <p class="text-error m-0">* Please select a valid date</p>
+            <p *ngIf="!endDate.valid" class="text-error m-0">* Please select a valid end date</p>
         </div>
-        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn green" (click)="closeModal()">
+        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn green" (click)="closeModal()" [disabled]="!formValid">
             <span>Apply</span>
         </button>
         <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn red" (click)="closeModal()">
