@@ -20,4 +20,15 @@ export class DateService {
     let now: number = Date.now();
     return this.datePipe.transform(now, 'YYYY-MM-dd');
   }
+
+  getNthPreviousDate(nth: number): string | null {
+    if (nth > 0) {
+      const dateOffset = (24 * 60 * 60 * 1000) * (nth - 1);
+      const date = new Date();
+      date.setTime(date.getTime() - dateOffset);
+      return this.datePipe.transform(date, 'YYYY-MM-dd');
+    } 
+
+    return null;
+  }
 }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {PictureData} from '../shared/objects/global-object';
 import {ApiService} from './api.service';
+import {DateService} from './date.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class DataService {
   private $isAPODLoading: boolean = false;
   private apodData = new BehaviorSubject<[PictureData] | null>(null);
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private dateService: DateService) { }
 
   get isAPODByDateLoading(): boolean {
     return this.$isAPODByDateLoading;
@@ -46,7 +47,12 @@ export class DataService {
     });
   }
 
-  loadAPOD(startDate: string, endDate?: string): void {
+  loadAPOD(startDate: string | null, endDate: string | null): void {
+
+    if (!startDate) {
+      return
+    }
+
     this.$isAPODLoading = true;
     this.apiService.getAPODByStartEndDate(startDate, endDate).subscribe({
       next: (response) => {
@@ -59,4 +65,9 @@ export class DataService {
       }
     });
   }
+
+  loadAPODLastNDays(days: number) {
+    this.loadAPOD(this.dateService.getNthPreviousDate(days), this.dateService.todayStr());
+  }
+
 }

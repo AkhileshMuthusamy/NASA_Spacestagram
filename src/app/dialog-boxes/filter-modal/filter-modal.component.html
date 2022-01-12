@@ -1,9 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="start end" class="modal" *ngIf="show">
     <div class="modal-body" fxLayout="column" fxLayoutGap="10px">
-        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn" (click)="closeModal()">
+        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn" (click)="loadDataLastNDays(10)">
             <span>Last 10 days</span>
         </button>
-        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn" (click)="closeModal()">
+        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn" (click)="loadDataLastNDays(30)">
             <span>Last 30 days</span>
         </button>
         <div fxLayout="column">

@@ -66,4 +66,9 @@ export class FilterModalComponent implements OnInit {
 
   }
 
+  loadDataLastNDays(days: number): void {
+    this.dataService.loadAPODLastNDays(days);
+    this.closeModal();
+  }
+
 }

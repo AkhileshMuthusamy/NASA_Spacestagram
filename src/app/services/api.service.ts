@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   
-  getAPODByStartEndDate(startDate: string, endDate?: string): Observable<[PictureData]> {
+  getAPODByStartEndDate(startDate: string, endDate: string | null): Observable<[PictureData]> {
     if (!endDate) {
       return this.httpClient.get<[PictureData]>(`${this.apiUrl}&start_date=${startDate}&end_date=${this.dateService.todayStr()}`);
     } else {
