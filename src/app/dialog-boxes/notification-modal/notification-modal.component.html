@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="end end" class="modal" *ngIf="dataService.showNotification">
+    <div class="modal-body">
+        <div class="modal-title" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                <i class="material-icons">error</i> <label>Error</label>
+            </div>
+            <button class="red" (click)="dataService.showNotification = false">
+                <i class="material-icons">close</i>
+            </button>
+        </div>
+        <hr />
+        <div class="modal-message w-100">
+            <p>{{dataService.notificationMessage}}</p>
+        </div>
+    </div>
+
+</div>

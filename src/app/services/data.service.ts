@@ -15,6 +15,9 @@ export class DataService {
   private $isAPODLoading: boolean = false;
   private apodData = new BehaviorSubject<[PictureData] | null>(null);
 
+  public showNotification: boolean = false;
+  public notificationMessage: string = '';
+
   constructor(private apiService: ApiService, private dateService: DateService) { }
 
   get isAPODByDateLoading(): boolean {
@@ -70,4 +73,8 @@ export class DataService {
     this.loadAPOD(this.dateService.getNthPreviousDate(days), this.dateService.todayStr());
   }
 
+  displayNotification(message: string) {
+    this.notificationMessage = message;
+    this.showNotification = true;
+  }
 }

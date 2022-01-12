@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FilterModalComponent} from './dialog-boxes/filter-modal/filter-modal.component';
 import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.component';
+import {NotificationModalComponent} from './dialog-boxes/notification-modal/notification-modal.component';
 import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
@@ -33,6 +34,7 @@ import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
     SafeUrlPipe,
     PictureCardLoadingComponent,
     FooterComponent,
+    NotificationModalComponent,
   ],
   imports: [
     BrowserModule,
