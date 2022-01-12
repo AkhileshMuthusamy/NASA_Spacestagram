@@ -1,5 +1,5 @@
 import {DatePipe} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -17,6 +17,7 @@ import {HeaderComponent} from './header/header.component';
 import {MainLayoutComponent} from './main-layout/main-layout.component';
 import {PictureCardLoadingComponent} from './picture-card-loading/picture-card-loading.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
+import {HttpInterceptorService} from './services/http-interceptor.service';
 import {SharedPostLayoutComponent} from './shared-post-layout/shared-post-layout.component';
 import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
 
@@ -49,7 +50,13 @@ import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [DatePipe],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

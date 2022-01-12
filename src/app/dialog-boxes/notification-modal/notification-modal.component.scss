@@ -23,10 +23,15 @@ $modal-border-radius: 12px;
         border-radius: $modal-border-radius;
         padding: 15px;
         width: 450px;
+        max-width: 99%;
         margin-bottom: 110px;
 
         .modal-title {
             color: $red;
+        }
+
+        .modal-message {
+            color: #353d44;
         }
 
         label {
