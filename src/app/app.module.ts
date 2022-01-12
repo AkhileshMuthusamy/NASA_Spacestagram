@@ -11,6 +11,7 @@ import {ImageModalComponent} from './dialog-boxes/image-modal/image-modal.compon
 import {ShareModalComponent} from './dialog-boxes/share-modal/share-modal.component';
 import {HeaderComponent} from './header/header.component';
 import {MainLayoutComponent} from './main-layout/main-layout.component';
+import {PictureCardLoadingComponent} from './picture-card-loading/picture-card-loading.component';
 import {PictureCardComponent} from './picture-card/picture-card.component';
 import {SharedPostLayoutComponent} from './shared-post-layout/shared-post-layout.component';
 import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
@@ -27,6 +28,7 @@ import {SafeUrlPipe} from './shared/pipes/safe-url.pipe';
     MainLayoutComponent,
     SharedPostLayoutComponent,
     SafeUrlPipe,
+    PictureCardLoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ export class SharedPostLayoutComponent implements OnInit, OnDestroy {
   $subscription!: Subscription;
   data!: PictureData;
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+  constructor(private route: ActivatedRoute, public dataService: DataService) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
