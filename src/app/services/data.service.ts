@@ -77,4 +77,19 @@ export class DataService {
     this.notificationMessage = message;
     this.showNotification = true;
   }
+
+  likePost(date: string): void {
+    localStorage.setItem(date, '1');
+  }
+
+  unlikePost(date: string): void {
+    localStorage.removeItem(date);
+  }
+
+  getPostLikeStatus(date: string): boolean {
+    if(localStorage.getItem(date) === '1') {
+      return true
+    }
+    return false
+  }
 }

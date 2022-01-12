@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MediaObserver} from '@angular/flex-layout';
+import {DataService} from '../services/data.service';
 import {PictureData} from '../shared/objects/global-object';
 
 @Component({
@@ -20,7 +21,7 @@ export class PictureCardComponent implements OnInit {
   showShareModal = false;
   isLiked = false;
 
-  constructor(private mediaObserver: MediaObserver) { }
+  constructor(private mediaObserver: MediaObserver, private dataService: DataService) { }
 
   ngOnInit(): void {
     this.mediaObserver.asObservable().subscribe((mediaChange) => {
@@ -31,7 +32,9 @@ export class PictureCardComponent implements OnInit {
       } else {
         this.sliceLength = this.MAX_CHAR_ON_PC;
       }
-     });
+    });
+
+    this.loadLikeStatus();
   }
 
   showImageModel(): void {
@@ -41,4 +44,19 @@ export class PictureCardComponent implements OnInit {
   showShareModel(): void {
     this.showShareModal = true;
   }
+
+  loadLikeStatus(): void {
+    this.isLiked = this.dataService.getPostLikeStatus(this.data.date);
+  }
+
+  likePost() {
+    if (this.isLiked) {
+      this.dataService.unlikePost(this.data.date);
+    } else {
+      this.dataService.likePost(this.data.date);
+    }
+    this.loadLikeStatus();
+  }
+
+
 }

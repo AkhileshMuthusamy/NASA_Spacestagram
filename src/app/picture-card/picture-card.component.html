@@ -15,7 +15,7 @@
         </span>
       </p>
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
-        <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn red" (click)="isLiked = !isLiked">
+        <button fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="round-btn red" (click)="likePost()">
           <i class="material-icons" [ngClass]="{'bouncy': isLiked === true}">{{isLiked ? 'favorite' : 'favorite_border'}}</i>
           <span>Like</span>
         </button>
