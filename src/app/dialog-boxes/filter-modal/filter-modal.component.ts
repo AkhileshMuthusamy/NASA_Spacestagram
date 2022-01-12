@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {DataService} from 'src/app/services/data.service';
+import {DateService} from 'src/app/services/date.service';
 
 @Component({
   selector: 'shopify-filter-modal',
@@ -22,13 +24,13 @@ export class FilterModalComponent implements OnInit {
     return this.startDate.valid && this.endDate.valid
   }
 
-  constructor() { }
+  constructor(private dateService: DateService, private dataService: DataService) { }
 
   ngOnInit(): void {
     this.startDate.valueChanges.subscribe((value) => {
       this.endDate.setErrors(null);
 
-      if (this.convertStringToDate(value) > this.convertStringToDate(this.endDate.value)) {
+      if (this.dateService.convertStringToDate(value) > this.dateService.convertStringToDate(this.endDate.value)) {
         this.startDate.setErrors({
           'invalidDate': true
         });
@@ -38,7 +40,7 @@ export class FilterModalComponent implements OnInit {
     this.endDate.valueChanges.subscribe((value) => {
       this.startDate.setErrors(null);
 
-      if (this.convertStringToDate(value) < this.convertStringToDate(this.startDate.value)) {
+      if (this.dateService.convertStringToDate(value) < this.dateService.convertStringToDate(this.startDate.value)) {
         this.endDate.setErrors({
           'invalidDate': true
         });
@@ -46,18 +48,22 @@ export class FilterModalComponent implements OnInit {
     });
   }
 
-  closeModal() {
+  closeModal(): void {
     this.startDate.setValue('');
     this.endDate.setValue('');
     this.close.emit(true);
   }
 
-  convertStringToDate(dateStr: string) {
-    let offsetDate = new Date(dateStr);
-    let currentOffset = new Date().getTimezoneOffset();
-    let currentOffsetInMilliSeconds = currentOffset * 60 * 1000
+  loadData(): void {
+    if (this.startDate.value) {
+      this.dataService.loadAPOD(this.startDate.value, this.endDate.value);
+      this.closeModal();
+    } else {
+      this.startDate.setErrors({
+        'invalidDate': true
+      });
+    }
 
-    return new Date(offsetDate.getTime() + currentOffsetInMilliSeconds)
   }
 
 }

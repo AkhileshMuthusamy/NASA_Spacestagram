@@ -11,8 +11,8 @@ export class DataService {
   private $isAPODByDateLoading: boolean = false;
   private apodByDateData = new BehaviorSubject<PictureData | null>(null);
   
-  private $isAPODByLast10Loading: boolean = false;
-  private apodByLast10Data = new BehaviorSubject<[PictureData] | null>(null);
+  private $isAPODLoading: boolean = false;
+  private apodData = new BehaviorSubject<[PictureData] | null>(null);
 
   constructor(private apiService: ApiService) { }
 
@@ -20,8 +20,16 @@ export class DataService {
     return this.$isAPODByDateLoading;
   }
 
+  get isAPODLoading(): boolean {
+    return this.$isAPODLoading;
+  }
+
   public getAPODByDate(): Observable<PictureData | null> {
     return this.apodByDateData.asObservable();
+  }
+
+  public getAPOD(): Observable<[PictureData] | null> {
+    return this.apodData.asObservable();
   }
 
   loadAPODByDate(date: string): void {
@@ -34,6 +42,20 @@ export class DataService {
       },
       error: () => {
         this.$isAPODByDateLoading = false;
+      }
+    });
+  }
+
+  loadAPOD(startDate: string, endDate?: string): void {
+    this.$isAPODLoading = true;
+    this.apiService.getAPODByStartEndDate(startDate, endDate).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.apodData.next(response);
+        this.$isAPODLoading = false;
+      },
+      error: () => {
+        this.$isAPODLoading = false;
       }
     });
   }

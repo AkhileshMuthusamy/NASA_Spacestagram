@@ -20,7 +20,7 @@
             </div>
             <p *ngIf="!endDate.valid" class="text-error m-0">* Please select a valid end date</p>
         </div>
-        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn green" (click)="closeModal()" [disabled]="!formValid">
+        <button fxLayout="row" fxLayoutAlign="center center" class="round-btn green" (click)="loadData()" [disabled]="!formValid">
             <span>Apply</span>
         </button>
     </div>
