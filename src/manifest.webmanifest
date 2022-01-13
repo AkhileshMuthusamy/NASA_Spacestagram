@@ -1,7 +1,7 @@
 {
   "name": "Spacestagram",
   "short_name": "Spacestagram",
-  "theme_color": "#1976d2",
+  "theme_color": "#1b1c1e",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
