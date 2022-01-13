@@ -46,7 +46,7 @@ export class PictureCardComponent implements OnInit {
   }
 
   loadLikeStatus(): void {
-    this.isLiked = this.dataService.getPostLikeStatus(this.data.date);
+    this.isLiked = this.dataService.getPostLikeStatus(this.data?.date);
   }
 
   likePost() {
