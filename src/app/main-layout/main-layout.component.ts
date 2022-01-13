@@ -11,7 +11,7 @@ import {PictureData} from '../shared/objects/global-object';
 export class MainLayoutComponent implements OnInit {
 
   $subscription!: Subscription;
-  data!: [PictureData];
+  data!: PictureData[];
 
   constructor(public dataService: DataService) { }
 
@@ -25,9 +25,9 @@ export class MainLayoutComponent implements OnInit {
   }
 
   subscribeSettings(): void {
-    this.$subscription = this.dataService.getAPOD().subscribe((responseData: [PictureData] | null) => {
+    this.$subscription = this.dataService.getAPOD().subscribe((responseData: PictureData[] | null) => {
       if (responseData) {
-        this.data = responseData;
+        this.data = responseData.reverse();
       }
     });
   }

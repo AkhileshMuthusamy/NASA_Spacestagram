@@ -4,7 +4,7 @@
         <shopify-picture-card-loading *ngIf="dataService.isAPODLoading"></shopify-picture-card-loading>
     </div>
     <ng-container *ngIf="data">
-        <div ngClass.sm="md-container" ngClass.gt-sm="lg-container" *ngFor="let pod of data.reverse()" class="pb-3">
+        <div ngClass.sm="md-container" ngClass.gt-sm="lg-container" *ngFor="let pod of data" class="pb-3">
             <shopify-picture-card *ngIf="!dataService.isAPODLoading" [data]="pod"></shopify-picture-card>
         </div>
     </ng-container>
