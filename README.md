@@ -1,27 +1,51 @@
-# ShopifySpacestagram
+# Spacestagram
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+## Features
 
-## Development server
+1. Filter Date
+2. Share Image
+3. Like/Unlike image
+4. API Error Handling
+5. Mobile Responsive Design
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 1. Filter Date
 
-## Code scaffolding
+![Filter Date](readme/filter_record.jpeg)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. Share Image
 
-## Build
+The share dialog box allows user to share image on facebook/twitter or user can copy the image link to share on other social media platforms.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Share Image](readme/share_image.jpeg)
 
-## Running unit tests
+The 'Share Post' shares the post/article from the Spacestagram website
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Share Post](readme/share_post.jpeg)
 
-## Running end-to-end tests
+## 3. Like/Unlike image
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+When user likes the image the information is stored in the local storage.
+![Like Post](readme/like_post.jpg)
 
-## Further help
+## 4. API Error Handling
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A dialog box will be shown when there is an API error. The API error is globally handled by HTTPInterceptor service.
+![Like Post](readme/error_handling.jpg)
+
+## 5. Mobile Responsive Design
+
+### Destopk View
+
+![Destop View](readme/destop_view.jpeg)
+
+### Mobile View
+
+![Mobile View](readme/mobile_view.jpg)
+
+## Framework
+
+[Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+
+## Hosting
+
+<https://nasa-spacestagram-web.netlify.app/>
